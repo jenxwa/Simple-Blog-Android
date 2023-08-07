@@ -9,5 +9,6 @@ data class BlogData(
     val jobDescription: String = "",
     val descriptionShort: String = "",
     val description: String = "",
+    val chipList: List<String> = emptyList(),
     val imageResId: Int? = null
 ) : Parcelable

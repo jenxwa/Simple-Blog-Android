@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardCornerRadius="0dp"
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="8dp"
@@ -57,5 +58,18 @@
             app:layout_constraintStart_toEndOf="@id/blog_item_image"
             app:layout_constraintTop_toBottomOf="@+id/blog_item_job_description"
             tools:text="@string/lorem_ipsum" />
+
+        <LinearLayout
+            android:id="@+id/blog_item_chipContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/blog_item_description"
+            app:layout_constraintStart_toStartOf="@id/blog_item_description"
+            app:layout_constraintTop_toBottomOf="@+id/blog_item_description"
+            tools:background="@color/c24_lightgrey"
+            tools:layout_height="20dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
