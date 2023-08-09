@@ -2,10 +2,12 @@ package com.example.itstudentspool2.activity
 
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.itstudentspool2.R
 import com.example.itstudentspool2.data.BlogData
+import com.example.itstudentspool2.databinding.ViewBlogChipBinding
 
 class BlogDetailActivity : AppCompatActivity() {
 
@@ -19,8 +21,16 @@ class BlogDetailActivity : AppCompatActivity() {
         val titleTextView = findViewById<TextView>(R.id.detail_blog_title)
         val descriptionTextView = findViewById<TextView>(R.id.detail_blog_description)
         val imageView = findViewById<ImageView>(R.id.detail_blog_image)
+        val chipContainer = findViewById<LinearLayout>(R.id.detail_blog_chip_container)
 
         // Set the data from the blogData object to the views
+        chipContainer.removeAllViews()
+        blogData?.chipList?.forEach { item ->
+            val chipView = ViewBlogChipBinding.inflate(layoutInflater, chipContainer, false)
+            chipView.root.text = item
+            chipContainer.addView(chipView.root)
+        }
+
         titleTextView.text = blogData?.title
         descriptionTextView.text = blogData?.description
         blogData?.imageResId?.let { imageView.setImageResource(it) }

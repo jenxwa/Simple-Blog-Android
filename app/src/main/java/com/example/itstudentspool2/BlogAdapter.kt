@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.itstudentspool2.data.BlogData
+import com.example.itstudentspool2.databinding.ViewBlogChipBinding
 import com.example.itstudentspool2.databinding.ViewBlogItem2Binding
 
 class BlogAdapter(private val blogList: List<BlogData>) : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
@@ -41,6 +42,16 @@ class BlogAdapter(private val blogList: List<BlogData>) : RecyclerView.Adapter<B
             binding.blogItemJobDescription.text = blogData.jobDescription
             binding.blogItemDescription.text = blogData.descriptionShort
             blogData.imageResId?.let { binding.blogItemImage.setImageResource(it) }
+            setChips(blogData.chipList)
+        }
+
+        private fun setChips(list: List<String>){
+            binding.blogItemChipContainer.removeAllViews()
+            list.forEach { item ->
+                val chipView = ViewBlogChipBinding.inflate(LayoutInflater.from(binding.root.context), binding.blogItemChipContainer, false)
+                chipView.root.text = item
+                binding.blogItemChipContainer.addView(chipView.root)
+            }
         }
     }
 
