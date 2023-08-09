@@ -6,9 +6,9 @@
     android:layout_height="40dp"
     android:layout_marginStart="3dp"
     android:clickable="false"
-    android:ellipsize="end"
     android:includeFontPadding="false"
     android:padding="6dp"
+    app:cornerRadius="0dp"
     android:textSize="11sp"
     app:backgroundTint="@color/c24_yellow"
     tools:text="Softwaredevelopment" />
