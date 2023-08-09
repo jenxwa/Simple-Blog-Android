@@ -1,5 +1,6 @@
 package com.example.itstudentspool2.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.itstudentspool2.R
 import com.example.itstudentspool2.data.BlogData
 import com.example.itstudentspool2.databinding.ViewBlogChipBinding
+import com.google.android.material.button.MaterialButton
 
 class BlogDetailActivity : AppCompatActivity() {
 
@@ -29,6 +31,13 @@ class BlogDetailActivity : AppCompatActivity() {
             val chipView = ViewBlogChipBinding.inflate(layoutInflater, chipContainer, false)
             chipView.root.text = item
             chipContainer.addView(chipView.root)
+        }
+
+        //onClickListener for the Button
+        val seeMoreDetailsButton: MaterialButton = findViewById(R.id.detail_blog_apply_button)
+        seeMoreDetailsButton.setOnClickListener {
+            val intent = Intent(this, ApplyToJobActivity::class.java)
+            startActivity(intent)
         }
 
         titleTextView.text = blogData?.title

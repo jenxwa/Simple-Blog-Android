@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:scaleType="centerCrop"
+            android:contentDescription="BannerImage"
             android:src="@drawable/ic_launcher_background" />
 
         <TextView
@@ -35,5 +36,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="@string/lorem_ipsum" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/detail_blog_apply_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="apply to this job" />
+
     </LinearLayout>
 </ScrollView>
