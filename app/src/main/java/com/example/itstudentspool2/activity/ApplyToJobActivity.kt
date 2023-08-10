@@ -21,13 +21,21 @@ class ApplyToJobActivity : AppCompatActivity() {
         val submitButton: Button = findViewById(R.id.submit_button)
 
         submitButton.setOnClickListener {
-            if (nameEditText.text.isNotEmpty() &&
-                emailEditText.text.isNotEmpty() &&
-                phoneEditText.text.isNotEmpty() &&
-                resumeEditText.text.isNotEmpty()) {
-                Toast.makeText(this, "Thank you for applying!", Toast.LENGTH_SHORT).show()
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailEditText.text).matches()){
+                Toast.makeText(this, "No valid email provided!", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+                if (!android.util.Patterns.PHONE.matcher(phoneEditText.text).matches()) {
+                    Toast.makeText(this, "No valid phone number provided!", Toast.LENGTH_SHORT).show()
+                } else {
+                    if (nameEditText.text.isNotEmpty() &&
+                        emailEditText.text.isNotEmpty() &&
+                        phoneEditText.text.isNotEmpty() &&
+                        resumeEditText.text.isNotEmpty()) {
+                        Toast.makeText(this, "Thank you for applying!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
     }

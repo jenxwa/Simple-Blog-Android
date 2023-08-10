@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit Application"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="@color/c24_blue"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
